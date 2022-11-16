@@ -10,3 +10,12 @@
 #include <algorithm>
 
 #include "soundex.h"
+
+using namespace std;
+
+void function_here() {}
+
+int main(int argc, char* argv[]) {
+
+    return 0;
+}

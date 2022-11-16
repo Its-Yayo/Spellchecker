@@ -1,3 +1,10 @@
-//
-// Created by yayo on 16/11/22.
-//
+#pragma once
+#include <iostream>
+#include <stdio.h>
+#include <string>
+#include <fstream>
+#include <sstream>
+#include <cstdlib>
+#include <iomamin>
+#include <vector>
+#include <algorithm>

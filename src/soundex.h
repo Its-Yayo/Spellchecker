@@ -2,10 +2,6 @@
 #include <regex>
 #include <vector>
 
-#include <fstream>
-#include <regex>
-#include <vector>
-
 using namespace std;
 
 struct word {
@@ -16,7 +12,7 @@ struct word {
 
 bool read_words(
         const string input_file_name,
-        std::vector<word>& words) {
+        vector<word>& words) {
     ifstream input_file(input_file_name);
     if (input_file.fail()) {
         return false;

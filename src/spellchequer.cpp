@@ -22,9 +22,10 @@ static unordered_map<char, char> map_values = {
     {'r', '6'}
 };
 
-string soundex(string s) {
+auto soundex(string s) {
 
 }
+
 int main(int argc, char* argv[]) {
 
 

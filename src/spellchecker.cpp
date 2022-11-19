@@ -11,6 +11,10 @@
 
 using namespace std;
 
+bool read_words(
+        const std::string input_file_name,
+        std::vector<word>& words);
+
 int main() {
     string file_name = "";
     vector<word> words;
@@ -26,4 +30,10 @@ int main() {
     }
 
     return 0;
+}
+
+bool read_words(
+        const std::string input_file_name,
+        std::vector<word>& words) {
+
 }

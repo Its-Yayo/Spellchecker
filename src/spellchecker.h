@@ -7,7 +7,9 @@
 
 using namespace std;
 
-static unordered_map<char, char> map_values = {
+const int len_soundex = 7;
+
+static unordered_map<char, char> parse_values = {
         {'b', '1'}, {'f', '1'}, {'p', '1'}, {'v', '1'},
         {'c', '2'}, {'g', '2'}, {'j', '2'}, {'k', '2'}, {'q', '2'}, {'s', '2'}, {'x', '2'}, {'z', '2'},
         {'d', '3'}, {'t', '3'},
@@ -16,6 +18,6 @@ static unordered_map<char, char> map_values = {
         {'r', '6'}
 };
 
-auto soundex(string& s) {
+auto soundex(const string& s) {
 
 }

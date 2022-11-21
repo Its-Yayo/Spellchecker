@@ -21,11 +21,16 @@ unordered_map<char, char> parse_values = {
         {'a', '.'}, {'e', '.'}, {'i', '.'}, {'o', '.'}, {'u', '.'}, {'h', '.'}, {'w', '.'}, {'y', '.'}
 };
 
-auto soundex(const string& ) {
+auto soundex(const string& token) {
     token = transform(token.begin(), token.end(), token.begin(), ::toupper);
     string soundex = "";
 
     soundex += token[0];
 
-
+    for (char value : token) {
+        for (auto key : parse_values) {
+            if ()
+        }
+    }
+    return soundex;
 }

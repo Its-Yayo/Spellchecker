@@ -12,8 +12,8 @@
 using namespace std;
 
 bool read_words(
-        const std::string input_file_name,
-        std::vector<word>& words);
+        const string input_file_name,
+        vector<word>& words);
 
 int main() {
     string file_name = "";
@@ -21,11 +21,11 @@ int main() {
 
     if (read_words(file_name, words)) {
         for (word w : words) {
-            std::cout << w.text << "  (line " << w.line
+            cout << w.text << "  (line " << w.line
                       << ", column " << w.column << ")\n";
         }
     } else {
-        std::cout << "Unable to read file: "
+        cout << "Unable to read file: "
                   << file_name << "\n";
     }
 

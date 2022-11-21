@@ -23,7 +23,7 @@ unordered_map<char, char> parse_values = {
 
 auto soundex(const string& ) {
     token = transform(token.begin(), token.end(), token.begin(), ::toupper);
-    soundex = "";
+    string soundex = "";
 
     soundex += token[0];
 

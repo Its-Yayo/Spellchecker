@@ -5,6 +5,7 @@
 #include <cctype>
 #include <vector>
 #include <unordered_map>
+#include <unordered_set>
 #include <algorithm>
 
 using namespace std;
@@ -20,7 +21,7 @@ unordered_map<char, char> parse_values = {
         {'r', '6'}
 };
 
-unordered_set<char> ignore {'a', 'e', 'i', 'o', 'u', 'h', 'w', 'y'};
+unordered_set<char> parse_ignore {'a', 'e', 'i', 'o', 'u', 'h', 'w', 'y'};
 
 auto soundex(const string& token) {
     string token = transform(token.begin(), token.end(), token.begin(), ::tolower);
@@ -29,11 +30,12 @@ auto soundex(const string& token) {
     soundex_word += token[0];
 
     for (int i = 1; i < token.size(); i++) {
-        if (not ignore.count(token[i])) {
+        if (not parse_ignore.count(token[i])) {
             soundex_word += parse_values[token[i]];
         }
     }
 
+    if ()
 
     return soundex_word;
 }

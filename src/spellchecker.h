@@ -29,9 +29,9 @@ auto soundex(const string& token) {
 
     for (char value : token) {
         for (auto key : parse_values) {
-            if (key )
+            if ()
 
         }
     }
-    return soundex;
+    return soundex_word;
 }

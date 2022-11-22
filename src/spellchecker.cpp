@@ -11,6 +11,12 @@
 
 using namespace std;
 
+struct word {
+    string text;
+    int line;
+    int column;
+};
+
 bool read_words(
         const string input_file_name,
         vector<word>& words);
@@ -21,8 +27,7 @@ int main() {
 
     if (read_words(file_name, words)) {
         for (word w : words) {
-            cout << w.text << "  (line " << w.line
-                      << ", column " << w.column << ")\n";
+            // Code for Soundex Function
         }
     } else {
         cout << "Unable to read file: "

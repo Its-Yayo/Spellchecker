@@ -35,7 +35,7 @@ auto soundex(const string& token) {
         }
     }
 
-    if ()
+    soundex_word = soundex_word.size() != len_soundex ? soundex_word.insert() :
 
     return soundex_word;
 }

@@ -22,14 +22,15 @@ unordered_map<char, char> parse_values = {
 };
 
 auto soundex(const string& token) {
-    token = transform(token.begin(), token.end(), token.begin(), ::toupper);
-    string soundex = "";
+    string token = transform(token.begin(), token.end(), token.begin(), ::toupper);
+    string soundex_word = "";
 
-    soundex += token[0];
+    soundex_word += token[0];
 
     for (char value : token) {
         for (auto key : parse_values) {
-            if ()
+            if (key )
+
         }
     }
     return soundex;

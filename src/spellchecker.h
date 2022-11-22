@@ -17,21 +17,23 @@ unordered_map<char, char> parse_values = {
         {'d', '3'}, {'t', '3'},
         {'l', '4'},
         {'m', '5'}, {'n', '5'},
-        {'r', '6'},
-        {'a', '.'}, {'e', '.'}, {'i', '.'}, {'o', '.'}, {'u', '.'}, {'h', '.'}, {'w', '.'}, {'y', '.'}
+        {'r', '6'}
 };
 
+unordered_set<char> ignore {'a', 'e', 'i', 'o', 'u', 'h', 'w', 'y'};
+
 auto soundex(const string& token) {
-    string token = transform(token.begin(), token.end(), token.begin(), ::toupper);
+    string token = transform(token.begin(), token.end(), token.begin(), ::tolower);
     string soundex_word = "";
 
     soundex_word += token[0];
 
-    for (char value : token) {
-        for (auto key : parse_values) {
-            if ()
-
+    for (int i = 1; i < token.size(); i++) {
+        if (not ignore.count(token[i])) {
+            soundex_word += parse_values[token[i]];
         }
     }
+
+
     return soundex_word;
 }

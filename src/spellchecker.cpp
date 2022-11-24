@@ -44,7 +44,6 @@ unordered_map<char, char> parse_values = {
 unordered_set<char> parse_ignore {'a', 'e', 'i', 'o', 'u', 'h', 'w', 'y'};
 
 // Unordered_set and unordered_map for main
-
 unordered_set<string> parse_soundex;
 unordered_map<string, vector<string>> parse_final;
 
@@ -67,6 +66,10 @@ auto soundex(const string& token) {
 
     return soundex_word;
 }
+
+
+
+/******* File & Main Methods *******/
 
 struct word {
     string text;
@@ -101,8 +104,10 @@ bool read_words(const string input_file_name, vector<word>& words) {
     return true;
 }
 
+
+
 int main() {
-    string file_name = "";
+    string file_name = "words.txt";
     vector<word> words;
 
     if (read_words(file_name, words)) {

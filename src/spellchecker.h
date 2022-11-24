@@ -4,6 +4,7 @@
 #include <bits/stdc++.h>
 #include <cctype>
 #include <vector>
+#include <iomanip>
 #include <unordered_map>
 #include <unordered_set>
 #include <algorithm>
@@ -35,7 +36,11 @@ auto soundex(const string& token) {
         }
     }
 
-    soundex_word = soundex_word.size() != len_soundex ? soundex_word.insert() :
+    while (soundex_word == len_soundex) {
+        if (soundex_word < len_soundex) {
+            soundex_word = 
+        }
+    }
 
     return soundex_word;
 }

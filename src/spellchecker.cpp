@@ -45,7 +45,8 @@ unordered_set<char> parse_ignore {'a', 'e', 'i', 'o', 'u', 'h', 'w', 'y'};
 
 // Unordered_set and unordered_map for main
 
-
+unordered_set<string> parse_soundex;
+unordered_map<string, vector<string>> parse_final;
 
 /***  Initialize Methods ***/
 

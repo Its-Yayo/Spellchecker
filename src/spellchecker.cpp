@@ -6,7 +6,7 @@
  * Github Repo -> https://github.com/a01754574/Spellchecker
  * Project Specs -> https://arielortiz.info/apps/s202213/tc1031/integrating_project/
  *
- * 30-Nov-2022
+ * Nov - 30 - 2022
  *
  * Developed by:
  *      A01754574 Luis Fernando De Leon Silva
@@ -48,7 +48,7 @@ unordered_set<char> parse_ignore {'a', 'e', 'i', 'o', 'u', 'h', 'w', 'y'};
 unordered_set<string> parse_soundex;
 unordered_map<string, vector<string>> parse_final;
 
-/***  Initialize Methods ***/
+/******* Initialize Methods *******/
 
 auto soundex(const string& token) {
     string token = transform(token.begin(), token.end(), token.begin(), ::tolower);

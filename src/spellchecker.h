@@ -38,7 +38,7 @@ auto soundex(const string& token) {
 
     while (soundex_word == len_soundex) {
         if (soundex_word < len_soundex) {
-            soundex_word = 
+            int len_left =
         }
     }
 

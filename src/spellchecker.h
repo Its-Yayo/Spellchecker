@@ -4,7 +4,6 @@
 #include <bits/stdc++.h>
 #include <cctype>
 #include <vector>
-#include <iomanip>
 #include <unordered_map>
 #include <unordered_set>
 #include <algorithm>
@@ -44,12 +43,8 @@ auto soundex(const string& token) {
         }
     }
 
-    while (sizeof(soundex_word) < len_soundex) {
-        soundex_word = add(soundex_word, '0');
-
-        if (sizeof(soundex_word) == len_soundex) return;
-        else truncate(soundex_word, )
-    }
+    soundex_word += "0000000";
+    soundex_word = soundex_word.substr(0, len_soundex);
 
     return soundex_word;
 }

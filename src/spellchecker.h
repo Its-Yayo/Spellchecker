@@ -24,6 +24,14 @@ unordered_map<char, char> parse_values = {
 
 unordered_set<char> parse_ignore {'a', 'e', 'i', 'o', 'u', 'h', 'w', 'y'};
 
+void add(string& word, char character) {
+
+}
+
+void truncate(string& word, int left) {
+
+}
+
 auto soundex(const string& token) {
     string token = transform(token.begin(), token.end(), token.begin(), ::tolower);
     string soundex_word = "";
@@ -36,10 +44,11 @@ auto soundex(const string& token) {
         }
     }
 
-    while (soundex_word == len_soundex) {
-        if (soundex_word < len_soundex) {
+    while (sizeof(soundex_word) < len_soundex) {
+        soundex_word = add(soundex_word, '0');
 
-        }
+        if (sizeof(soundex_word) == len_soundex) return;
+        else truncate(soundex_word, )
     }
 
     return soundex_word;

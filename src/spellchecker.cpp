@@ -111,7 +111,7 @@ int main() {
     vector<word> words;
 
     if (read_words(file_name, words)) {
-        
+        int correct = 0;
         for (word w : words) {
 
         }

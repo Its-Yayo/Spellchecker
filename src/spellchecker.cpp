@@ -111,8 +111,9 @@ int main() {
     vector<word> words;
 
     if (read_words(file_name, words)) {
+        
         for (word w : words) {
-            // Code for Soundex Function
+
         }
     } else {
         cout << "Unable to read file: "

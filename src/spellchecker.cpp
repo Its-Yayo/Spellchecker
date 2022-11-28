@@ -43,9 +43,19 @@ unordered_map<char, char> parse_values = {
 
 unordered_set<char> parse_ignore {'a', 'e', 'i', 'o', 'u', 'h', 'w', 'y'};
 
-// Unordered_set and unordered_map for main
+// Const Data structures for parse Soundex words and word's file .txt
 unordered_set<string> parse_soundex;
 unordered_map<string, vector<string>> parse_final;
+
+vector<string> words_file;
+vector<string> words_suggestions;
+vector<string> incorrect_words;
+
+struct word {
+    string text;
+    int line;
+    int column;
+};
 
 /******* Initialize Methods *******/
 
@@ -69,13 +79,17 @@ auto soundex(const string& token) {
 
 
 
-/******* File & Main Methods *******/
+void suggestions_word() {
 
-struct word {
-    string text;
-    int line;
-    int column;
-};
+}
+
+void add_word() {
+
+}
+
+
+
+/******* File & Main Methods *******/
 
 bool read_words(const string input_file_name, vector<word>& words) {
     ifstream input_file(input_file_name);
@@ -106,18 +120,12 @@ bool read_words(const string input_file_name, vector<word>& words) {
 
 
 
-int main() {
+int main(int args, char* argv[]) {
     string file_name = "words.txt";
     vector<word> words;
 
-    if (read_words(file_name, words)) {
-        int correct = 0;
-        for (word w : words) {
-
-        }
-    } else {
-        cout << "Unable to read file: "
-                  << file_name << "\n";
+    if (not read_words(file_name, words)) {
+        cout << "No File "
     }
 
     return 0;

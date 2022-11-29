@@ -19,7 +19,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <unordered_mao>
+#include <unordered_map>
 #include <unordered_set>
 #include <algorithm>
 #include <fstream>
@@ -45,11 +45,10 @@ unordered_set<char> parse_ignore {'a', 'e', 'i', 'o', 'u', 'h', 'w', 'y'};
 
 // Const Data structures for parse Soundex words and word's file .txt
 unordered_set<string> parse_words;
+unordered_set<string> parse_incorrect;
 unordered_map<string, vector<string>> parse_final;
 
-vector<string> words_file;
 vector<string> words_suggestions;
-vector<string> incorrect_words;
 
 struct word {
     string text;
@@ -57,13 +56,14 @@ struct word {
     int column;
 };
 
-vector<word> words_file;
-vector<word> words_incorrect;
+// Words.txt
+vector<word> word_file;
+vector<word> word_incorrect;
 
 /******* Initialize Methods *******/
 
 auto soundex(const string& token) {
-    string token = transform(token.begin(), token.end(), token.begin(), ::tolower);
+    transform(token.begin(), token.end(), token.begin(), ::tolower);
     string soundex_word = "";
 
     soundex_word += token[0];
@@ -109,7 +109,12 @@ bool read_words(const string input_file_name, vector<word>& words) {
 
 
 void find_word(vector<word> words) {
-    
+    for (int i = 0; i < words.size(); i++) {
+        if (parse_words.count(words[i].text) == 0 and parse_incorrect.count(words[i].text == 0)) {
+            word_incorrect.push_back(words[i]);
+            parse_incorrect.emplace(words[i].text);
+        }
+    }
 }
 
 void suggestions_word(string word) {

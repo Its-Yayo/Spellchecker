@@ -122,11 +122,7 @@ void suggestions_word(string word) {
 }
 
 void add_word(vector<word> words, unordered_set<string> words_set) {
-
-}
-
-void check_words(string file) {
-
+    
 }
 
 int main(int args, char* argv[]) {

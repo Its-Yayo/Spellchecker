@@ -44,10 +44,10 @@ unordered_map<char, char> parse_values = {
 unordered_set<char> parse_ignore {'a', 'e', 'i', 'o', 'u', 'h', 'w', 'y'};
 
 // Const Data structures for parse Soundex words and word's file .txt
-unordered_set<string> parse_soundex;
+unordered_set<string> parse_file;
 unordered_map<string, vector<string>> parse_final;
 
-vector<string> words_file;
+vector<string> words_soundex;
 vector<string> words_suggestions;
 vector<string> incorrect_words;
 
@@ -56,6 +56,10 @@ struct word {
     int line;
     int column;
 };
+
+vector<word> words;
+vector<word> words_ex;
+vector<word> words_final;
 
 /******* Initialize Methods *******/
 
@@ -77,19 +81,49 @@ auto soundex(const string& token) {
     return soundex_word;
 }
 
+bool read_words(const string input_file_name, vector<word>& words) {
+    ifstream input_file(input_file_name);
+
+    if (input_file.fail()) {
+        return false;
+    }
+
+    regex reg_exp("[a-zA-Z]+");
+    smatch match;
+    string text;
+    int line = 0;
+    int column = 0;
+
+    while (getline(input_file, text)) {
+        line++;
+        column = 1;
+
+        while (regex_search(text, match, reg_exp)) {
+            column += match.position();
+            words.push_back({match.str(), line, column});
+            column += match.length();
+            text = match.suffix().str();
+        }
+    }
+    return true;
+}
 
 
-void suggestions_word() {
+void find_word(vector<word> words) {
 
 }
 
-void add_word() {
+void suggestions_word(string word) {
 
 }
 
+void add_word(vector<word> words, unordered_set<string> words_set) {
 
+}
 
-/******* File & Main Methods *******/
+void check_words(string file) {
+
+}
 
 bool read_words(const string input_file_name, vector<word>& words) {
     ifstream input_file(input_file_name);
@@ -124,9 +158,13 @@ int main(int args, char* argv[]) {
     string file_name = "words.txt";
     vector<word> words;
 
-    if (not read_words(file_name, words)) {
-        cout << "No File "
+    if (read_words(file_name, words) == 0) {
+        cout << "No file found" << "\n";
+        exit(0);
     }
+
+
+
 
     return 0;
 }

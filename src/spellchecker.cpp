@@ -133,9 +133,6 @@ int main(int args, char* argv[]) {
         cout << "No file found" << "\n";
         exit(0);
     }
-
-
-
-
+    
     return 0;
 }

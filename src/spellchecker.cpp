@@ -152,47 +152,21 @@ void add_word(vector<word> words, unordered_set<string> words_set) {
 
 
 
-int main(int args, char* argv[]) {
+int main(int argc, char* argv[]) {
     string file_name = "words.txt";
     vector<word> words;
 
-    if (args != 2) {
+    if (argc != 2) {
         cerr << "No file found" << "\n";
         exit(1);
     }
     
     string file = argv[1];
-    vector<string> words_print;
+    vector<word> words_print;
     
     if (read_words(file, words_print)) {
         cout << "File Readed" << "\n";
     }
-
-
-    // if (rword == 0) {
-    //     cout << "No file found" << "\n";
-    //     exit(0);
-
-    // } else {
-    //     cout << "Reading file" << "\n";
-    //     cout << rword << endl;
-    // }
-
-    // if(check_words(file)) {
-    //     cout << word_file << endl;
-    // } else {
-    //     cout << "No file found" << "\n";
-    //     exit(0);
-    // }
-
-    // if (vn2) {
-    //     words_suggestions = parse_final[soundex(word)];
-    //     for (int i = 0; i < words_suggestionssugestion.size(); i++) {
-    //         cout << soundex([i]);
-    //     }
-    // }
-
-
 
 
     return 0;

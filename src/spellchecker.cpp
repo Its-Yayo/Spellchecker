@@ -164,7 +164,9 @@ int main(int args, char* argv[]) {
     string file = argv[1];
     vector<string> words_print;
     
-    read_words(file, words_print);
+    if (read_words(file, words_print)) {
+        cout << "File Readed" << "\n";
+    }
 
 
     // if (rword == 0) {

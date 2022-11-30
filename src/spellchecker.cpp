@@ -94,6 +94,7 @@ void add_soundex(vector<word>& words) {
     }
 }
 
+
 bool read_words(const string input_file_name, vector<word>& words) {
     ifstream input_file(input_file_name);
 
@@ -131,13 +132,21 @@ void find_word(vector<word> words) {
     }
 }
 
+
 void suggestions_word(string word) {
     bool vn2 = parse_final.count(soundex(word));
 }
 
+
 void add_word(vector<word> words, unordered_set<string> words_set) {
     for (int i = 0; i < words.size(); i++) {
         auto add_1 = words_set.emplace(words[i].text);
+    }
+}
+
+void print_final(vector<word> words) {
+    for (word words_final : words) {
+        
     }
 }
 
@@ -160,7 +169,7 @@ int main(int argc, char* argv[]) {
     vector<word> words_print;
     
     if (read_words(file, words_print)) {
-        cout << "File Readed" << "\n";
+        
     } else {
         cout << "No file found" << "\n";
     }

@@ -145,8 +145,8 @@ void add_word(vector<word> words, unordered_set<string> words_set) {
 }
 
 void print_final(vector<word> words) {
-    for (word words_final : words) {
-        
+    for (int i = 0; i < words.size(); i++) {
+        cout << 
     }
 }
 
@@ -169,7 +169,7 @@ int main(int argc, char* argv[]) {
     vector<word> words_print;
     
     if (read_words(file, words_print)) {
-        
+        print_final
     } else {
         cout << "No file found" << "\n";
     }

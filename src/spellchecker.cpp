@@ -155,17 +155,14 @@ void add_word(vector<word> words, unordered_set<string> words_set) {
 int main(int argc, char* argv[]) {
     string file_name = "words.txt";
     vector<word> words;
-
-    if (argc != 2) {
-        cerr << "No file found" << "\n";
-        exit(1);
-    }
     
     string file = argv[1];
     vector<word> words_print;
     
     if (read_words(file, words_print)) {
         cout << "File Readed" << "\n";
+    } else {
+        cout << "No file found" << "\n";
     }
 
 

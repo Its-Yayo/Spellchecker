@@ -48,6 +48,7 @@ unordered_set<string> parse_words;
 unordered_set<string> parse_incorrect;
 unordered_map<string, vector<string>> parse_final;
 
+
 vector<string> words_suggestions;
 
 struct word {
@@ -57,12 +58,13 @@ struct word {
 };
 
 // Words.txt
+vector<string> sound_var;
 vector<word> word_file;
 vector<word> word_incorrect;
 
 /******* Initialize Methods *******/
 
-auto soundex(const string& token) {
+auto soundex(string token) {
     transform(token.begin(), token.end(), token.begin(), ::tolower);
     string soundex_word = "";
 
@@ -78,6 +80,18 @@ auto soundex(const string& token) {
     soundex_word = soundex_word.substr(0, len_soundex);
 
     return soundex_word;
+}
+
+void add_soundex(vector<word>& words) {
+    for (int i  = 0; i < words.size(); i++) {
+        bool vc = parse_final.count(soundex(word_file[i].text));
+        if (vc) {
+            parse_final[soundex(word_file[i].text)].push_back(word_file[i].text);
+        } else {
+            sound_var.push_back(word_file[i].text);
+            parse_final.emplace(soundex(word_file[i].text),sound_var);
+        }
+    }
 }
 
 bool read_words(const string input_file_name, vector<word>& words) {
@@ -110,7 +124,7 @@ bool read_words(const string input_file_name, vector<word>& words) {
 
 void find_word(vector<word> words) {
     for (int i = 0; i < words.size(); i++) {
-        if (parse_words.count(words[i].text) == 0 and parse_incorrect.count(words[i].text == 0)) {
+        if (parse_words.count(words[i].text) == false and parse_incorrect.count(words[i].text) == false) {
             word_incorrect.push_back(words[i]);
             parse_incorrect.emplace(words[i].text);
         }
@@ -118,21 +132,66 @@ void find_word(vector<word> words) {
 }
 
 void suggestions_word(string word) {
-
+    bool vn2 = parse_final.count(soundex(word));
 }
 
 void add_word(vector<word> words, unordered_set<string> words_set) {
-
+    for (int i = 0; i < words.size(); i++) {
+        auto add_1 = words_set.emplace(words[i].text);
+    }
 }
+
+// void check_words(string file) {
+//     bool rword = read_words(file_name, word_file);
+//     string file_1 = "words.txt";
+//     rword = read_words(file_1, word_file);
+//     add_word(word_file, Words);
+//     find_word(word_file);
+//     add_soundex();
+// }
+
+
 
 int main(int args, char* argv[]) {
     string file_name = "words.txt";
     vector<word> words;
 
-    if (read_words(file_name, words) == 0) {
-        cout << "No file found" << "\n";
-        exit(0);
+    if (args != 2) {
+        cerr << "No file found" << "\n";
+        exit(1);
     }
     
+    string file = argv[1];
+    vector<string> words_print;
+    
+    read_words(file, words_print);
+
+
+    // if (rword == 0) {
+    //     cout << "No file found" << "\n";
+    //     exit(0);
+
+    // } else {
+    //     cout << "Reading file" << "\n";
+    //     cout << rword << endl;
+    // }
+
+    // if(check_words(file)) {
+    //     cout << word_file << endl;
+    // } else {
+    //     cout << "No file found" << "\n";
+    //     exit(0);
+    // }
+
+    // if (vn2) {
+    //     words_suggestions = parse_final[soundex(word)];
+    //     for (int i = 0; i < words_suggestionssugestion.size(); i++) {
+    //         cout << soundex([i]);
+    //     }
+    // }
+
+
+
+
     return 0;
 }

@@ -157,6 +157,9 @@ void print_final(vector<word>& words) {
             if (not _map) {
                 auto word_sugg = parse_incorrect.insert(word_spell);
                 
+                if (word_sugg.second) {
+                    
+                }
             }
         }
 

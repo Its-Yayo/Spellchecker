@@ -134,7 +134,7 @@ void find_word(vector<word> words) {
 
 
 void suggestions_word(vector<word> words) {
-    bool _map = parse_final.count(soundex(word));
+    bool _map = parse_final.count(soundex(word)); 
     string soundex_final;
 
     for (auto w : words) {
@@ -160,12 +160,18 @@ void add_word(vector<word> words, unordered_set<string> words_set) {
 }
 
 void print_final(vector<word> words) {
+    int _size; // Size for suggestion words for iterator
     for (auto w : words ) {
         cout <<
         "Unrecognized word: " << w.text <<
         "  First found at line " << w.line << ", column " <<
         w.column << "\n";
-
+        
+        if (_size <= 0) {
+            cout << "No suggestions. \n";
+        } else {
+            
+        }
 
     }
 }

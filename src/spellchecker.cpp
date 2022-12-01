@@ -132,7 +132,6 @@ void find_word(vector<word> words) {
     }
 }
 
-
 void add_word(vector<word> words, unordered_set<string> words_set) {
     for (int i = 0; i < words.size(); i++) {
         auto add_1 = words_set.emplace(words[i].text);
@@ -154,7 +153,6 @@ void print_final(vector<word>& words) {
             cout << "No suggestions. \n";
         } else {
             bool _map = parse_final.count(soundex(word)); 
-            int _size; // Size for suggestion words for iterator
 
             if (not _map) {
                 auto word_sugg = parse_incorrect.insert(word_spell);

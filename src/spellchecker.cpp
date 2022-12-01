@@ -133,9 +133,23 @@ void find_word(vector<word> words) {
 }
 
 
-void suggestions_word(string word) {
-    bool vn2 = parse_final.count(soundex(word));
-    
+void suggestions_word(vector<word> words) {
+    bool _map = parse_final.count(soundex(word));
+    string soundex_final;
+
+    for (auto w : words) {
+        string word_spell = w.text;
+
+        if (not _map) {
+            auto word_sugg = parse_incorrect.insert(word_spell);
+
+            if (word_sugg.second) {
+                soundex_final = soundex(word_spell);
+
+            }
+        }
+    }
+
 }
 
 
@@ -146,13 +160,13 @@ void add_word(vector<word> words, unordered_set<string> words_set) {
 }
 
 void print_final(vector<word> words) {
-    for (int i = 0; i < words.size(); i++) {
-        cout 
-            << "Unrecognized word: " << words[i].text 
-            << "First found at line " << words[i].line 
-            << ", column " << words[i].column << ". \n" 
-            << "Suggestions: " << suggestions_word(words[i].text) << "\n";
-        
+    for (auto w : words ) {
+        cout <<
+        "Unrecognized word: " << w.text <<
+        "  First found at line " << w.line << ", column " <<
+        w.column << "\n";
+
+
     }
 }
 
@@ -168,11 +182,11 @@ void print_final(vector<word> words) {
 
 
 int main(int argc, char* argv[]) {
-    string file_name = "words.txt";
+    string file_name = "tooinkle.txt";
     vector<word> words;
-    
+
     string file = argv[1];
-    
+
     if (read_words(file, words)) {
         print_final(words);
     } else {

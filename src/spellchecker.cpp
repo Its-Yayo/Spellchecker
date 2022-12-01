@@ -133,34 +133,17 @@ void find_word(vector<word> words) {
 }
 
 
-void suggestions_word(vector<word> words) {
-    bool _map = parse_final.count(soundex(word)); 
-    string soundex_final;
-
-    for (auto w : words) {
-        string word_spell = w.text;
-
-        if (not _map) {
-            auto word_sugg = parse_incorrect.insert(word_spell);
-
-            if (word_sugg.second) {
-                soundex_final = soundex(word_spell);
-
-            }
-        }
-    }
-
-}
-
-
 void add_word(vector<word> words, unordered_set<string> words_set) {
     for (int i = 0; i < words.size(); i++) {
         auto add_1 = words_set.emplace(words[i].text);
     }
 }
 
-void print_final(vector<word> words) {
+void print_final() {
     int _size; // Size for suggestion words for iterator
+    bool _map = parse_final.count(soundex(word)); 
+    string soundex_final;
+    
     for (auto w : words ) {
         cout <<
         "Unrecognized word: " << w.text <<
@@ -170,7 +153,19 @@ void print_final(vector<word> words) {
         if (_size <= 0) {
             cout << "No suggestions. \n";
         } else {
+            bool _map = parse_final.count(soundex(word)); 
+            string soundex_final;
+            int _size; // Size for suggestion words for iterator
+
+            for (auto w : words) {
+                string word_spell = w.text;
+
+                if (not _map) {
+                    auto word_sugg = parse_incorrect.insert(word_spell);
+
             
+                }
+            }
         }
 
     }
